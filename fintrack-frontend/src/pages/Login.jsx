@@ -8,7 +8,13 @@ const Login = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    // Dummy login action
+    // Save user info — use stored name from registration, or extract from email
+    const storedName = localStorage.getItem('userName');
+    if (!storedName) {
+      const nameFromEmail = email.split('@')[0];
+      localStorage.setItem('userName', nameFromEmail);
+    }
+    localStorage.setItem('userEmail', email);
     console.log("Logging in with", email);
     navigate('/dashboard');
   };

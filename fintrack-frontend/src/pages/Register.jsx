@@ -9,7 +9,9 @@ const Register = () => {
 
   const handleRegister = (e) => {
     e.preventDefault();
-    // Dummy register action
+    // Save user info to localStorage
+    localStorage.setItem('userName', name);
+    localStorage.setItem('userEmail', email);
     console.log("Registering", name, email);
     navigate('/login');
   };

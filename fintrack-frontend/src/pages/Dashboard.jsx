@@ -49,10 +49,12 @@ const Dashboard = () => {
   const totalIncome = transactions.filter(t => t.type === 'INCOME').reduce((acc, curr) => acc + curr.amount, 0);
   const totalExpenses = transactions.filter(t => t.type === 'EXPENSE').reduce((acc, curr) => Math.abs(acc) + Math.abs(curr.amount), 0);
 
+  const userName = localStorage.getItem('userName') || 'User';
+
   return (
     <div className="app-container">
       <header className="dashboard-header">
-        <h1>Welcome back, Alex.</h1>
+        <h1>Welcome back, {userName}.</h1>
         <p>Here is your interactive financial summary.</p>
       </header>
 
